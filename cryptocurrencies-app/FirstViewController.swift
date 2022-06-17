@@ -26,7 +26,7 @@ class FirstViewController: UIViewController, UITextFieldDelegate {
         
         var passwordTextField:UITextField = UITextField()
         
-        var loginButton:UIButton = UIButton()
+        var loginButton:UIButton = UIButton(type: .custom)
         
         
         func setUpContent() {
@@ -38,8 +38,6 @@ class FirstViewController: UIViewController, UITextFieldDelegate {
             contentView.rightAnchor.constraint(equalTo: self.view.rightAnchor).isActive = true
             contentView.topAnchor.constraint(equalTo: self.view.topAnchor).isActive = true
             contentView.bottomAnchor.constraint(equalTo: self.view.bottomAnchor).isActive = true
-            //contentView.addSubview(passwordTextField)
-            //contentView.addSubview(loginButton)
         }
         
         func setUpBackground() {
@@ -120,7 +118,24 @@ class FirstViewController: UIViewController, UITextFieldDelegate {
             passwordTextField.topAnchor.constraint(equalTo: passwordLabel.bottomAnchor, constant: 10).isActive = true
 
             
+        }
+        
+        func setUpLoginButton() {
+            contentView.addSubview(loginButton)
             
+            loginButton.translatesAutoresizingMaskIntoConstraints = false
+            
+            loginButton.setTitle("Log In", for: .normal)
+            loginButton.backgroundColor = UIColor.white
+            loginButton.setTitleColor(UIColor.black, for: .normal)
+            loginButton.titleLabel?.font =  UIFont(name: "AvenirNext-Regular", size: 25)
+            loginButton.frame = CGRect(x: 160, y: 100, width: 50, height: 50)
+            loginButton.layer.cornerRadius = 0.5 * loginButton.bounds.size.width
+            loginButton.clipsToBounds = true
+            
+            
+            loginButton.centerXAnchor.constraint(equalTo: contentView.centerXAnchor).isActive = true
+            loginButton.topAnchor.constraint(equalTo: passwordTextField.bottomAnchor, constant: 10).isActive = true
         }
         
         setUpContent()
@@ -129,6 +144,7 @@ class FirstViewController: UIViewController, UITextFieldDelegate {
         setUpLoginTextField()
         setUpPasswordLabel()
         setUpPasswordTextField()
+        setUpLoginButton()
         
     
     }
