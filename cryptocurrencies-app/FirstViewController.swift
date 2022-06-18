@@ -133,6 +133,8 @@ class FirstViewController: UIViewController, UITextFieldDelegate {
             loginButton.layer.cornerRadius = 0.5 * loginButton.bounds.size.width
             loginButton.clipsToBounds = true
             
+            loginButton.addTarget(self, action: #selector(logInButtonPressed), for: .touchUpInside)
+            
             
             loginButton.centerXAnchor.constraint(equalTo: contentView.centerXAnchor).isActive = true
             loginButton.topAnchor.constraint(equalTo: passwordTextField.bottomAnchor, constant: 10).isActive = true
@@ -149,15 +151,12 @@ class FirstViewController: UIViewController, UITextFieldDelegate {
     
     }
     
-
-    /*
-    // MARK: - Navigation
-
-    // In a storyboard-based application, you will often want to do a little preparation before navigation
-    override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
-        // Get the new view controller using segue.destination.
-        // Pass the selected object to the new view controller.
+    // Actions
+    
+    @objc func logInButtonPressed() {
+        print("log in button pressed")
     }
-    */
+
+    
 
 }
