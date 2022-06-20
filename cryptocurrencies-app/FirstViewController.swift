@@ -9,6 +9,10 @@ import UIKit
 
 class FirstViewController: UIViewController, UITextFieldDelegate {
     
+    // SecondViewController set up
+    let secondViewController = SecondViewController()
+    
+    
     
     let login = "CryptoInvestor2012"
     let password = "123456789password"
@@ -39,7 +43,7 @@ class FirstViewController: UIViewController, UITextFieldDelegate {
         super.viewDidLoad()
 
         
-        func setUpContent() {
+        func setUpContentView() {
             self.view.addSubview(contentView)
             
             contentView.translatesAutoresizingMaskIntoConstraints = false
@@ -155,7 +159,7 @@ class FirstViewController: UIViewController, UITextFieldDelegate {
             loginButton.topAnchor.constraint(equalTo: passwordTextField.bottomAnchor, constant: 10).isActive = true
         }
         
-        setUpContent()
+        setUpContentView()
         setUpBackground()
         setUpLoginLabel()
         setUpLoginTextField()
@@ -168,10 +172,14 @@ class FirstViewController: UIViewController, UITextFieldDelegate {
     
     // Actions
     
+    // UIButton Delegate Methods
     @objc func logInButtonPressed() {
         print("log in button pressed")
         
         print(enteredLoginText)
+        print(enteredPasswordText)
+        
+        self.present(secondViewController, animated: true)
         
         
     }
@@ -191,16 +199,16 @@ class FirstViewController: UIViewController, UITextFieldDelegate {
         
         switch activeTextField {
             case loginTextField:
+                textField.resignFirstResponder()
                 enteredLoginText = textField.text ?? ""
             case passwordTextField:
-            enteredPasswordText = textField.text ?? ""
+                textField.resignFirstResponder()
+                enteredPasswordText = textField.text ?? ""
             default:
                 print("sos")
         }
         
-        textField.resignFirstResponder()
-        enteredLoginText = textField.text ?? ""
-        print(enteredLoginText)
+        
         return true
     }
 
