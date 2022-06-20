@@ -9,25 +9,35 @@ import UIKit
 
 class FirstViewController: UIViewController, UITextFieldDelegate {
     
+    
+    let login = "CryptoInvestor2012"
+    let password = "123456789password"
+    
+    // UITextField that always point to the latest edited text field.
+    var activeTextField: UITextField!
+    
+    var enteredLoginText = ""
+    var enteredPasswordText = ""
+    
+    
+    var contentView:UIView = UIView()
+    
+    var background:UIImageView = UIImageView()
+    
+    var loginLabel:UILabel = UILabel()
+    
+    var loginTextField:UITextField = UITextField()
+    
+    var passwordLabel:UILabel = UILabel()
+    
+    var passwordTextField:UITextField = UITextField()
+    
+    var loginButton:UIButton = UIButton(type: .custom)
+    
 
     override func viewDidLoad() {
         super.viewDidLoad()
 
-        
-        var contentView:UIView = UIView()
-        
-        var background:UIImageView = UIImageView()
-        
-        var loginLabel:UILabel = UILabel()
-        
-        var loginTextField:UITextField = UITextField()
-        
-        var passwordLabel:UILabel = UILabel()
-        
-        var passwordTextField:UITextField = UITextField()
-        
-        var loginButton:UIButton = UIButton(type: .custom)
-        
         
         func setUpContent() {
             self.view.addSubview(contentView)
@@ -65,6 +75,7 @@ class FirstViewController: UIViewController, UITextFieldDelegate {
             loginLabel.centerXAnchor.constraint(equalTo: contentView.centerXAnchor).isActive = true
             loginLabel.centerYAnchor.constraint(equalTo: contentView.centerYAnchor, constant: -100).isActive = true
             
+            
         }
         
         func setUpLoginTextField() {
@@ -81,9 +92,13 @@ class FirstViewController: UIViewController, UITextFieldDelegate {
             loginTextField.clearButtonMode = UITextField.ViewMode.whileEditing
             loginTextField.contentVerticalAlignment = UIControl.ContentVerticalAlignment.center
             loginTextField.delegate = self
+            
 
             loginTextField.topAnchor.constraint(equalTo: loginLabel.bottomAnchor, constant: 10).isActive = true
             loginTextField.centerXAnchor.constraint(equalTo: contentView.centerXAnchor).isActive = true
+            
+            
+            enteredLoginText = loginTextField.text ?? ""
 
         }
         
@@ -155,6 +170,38 @@ class FirstViewController: UIViewController, UITextFieldDelegate {
     
     @objc func logInButtonPressed() {
         print("log in button pressed")
+        
+        print(enteredLoginText)
+        
+        
+    }
+    
+    
+    // UITextField Delegate Methods
+    
+    func textFieldDidBeginEditing(_ textField: UITextField) {
+        activeTextField = textField
+        
+    }
+    
+    func textFieldShouldReturn(_ textField: UITextField) -> Bool {
+        // called when 'return' key pressed. return NO to ignore.
+        print("TextField should return method called")
+        
+        
+        switch activeTextField {
+            case loginTextField:
+                enteredLoginText = textField.text ?? ""
+            case passwordTextField:
+            enteredPasswordText = textField.text ?? ""
+            default:
+                print("sos")
+        }
+        
+        textField.resignFirstResponder()
+        enteredLoginText = textField.text ?? ""
+        print(enteredLoginText)
+        return true
     }
 
     
