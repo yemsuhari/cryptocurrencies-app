@@ -9,9 +9,13 @@ import UIKit
 
 class FirstViewController: UIViewController, UITextFieldDelegate {
     
+    // SecondViewController set up
+    let secondViewController = SecondViewController()
+    
+    
     
     let login = "CryptoInvestor2012"
-    let password = "123456789password"
+    let password = "123456789"
     
     // UITextField that always point to the latest edited text field.
     var activeTextField: UITextField!
@@ -39,7 +43,7 @@ class FirstViewController: UIViewController, UITextFieldDelegate {
         super.viewDidLoad()
 
         
-        func setUpContent() {
+        func setUpContentView() {
             self.view.addSubview(contentView)
             
             contentView.translatesAutoresizingMaskIntoConstraints = false
@@ -128,6 +132,7 @@ class FirstViewController: UIViewController, UITextFieldDelegate {
             passwordTextField.clearButtonMode = UITextField.ViewMode.whileEditing
             passwordTextField.contentVerticalAlignment = UIControl.ContentVerticalAlignment.center
             passwordTextField.delegate = self
+            passwordTextField.isSecureTextEntry = true
             
             passwordTextField.centerXAnchor.constraint(equalTo: contentView.centerXAnchor).isActive = true
             passwordTextField.topAnchor.constraint(equalTo: passwordLabel.bottomAnchor, constant: 10).isActive = true
@@ -155,7 +160,7 @@ class FirstViewController: UIViewController, UITextFieldDelegate {
             loginButton.topAnchor.constraint(equalTo: passwordTextField.bottomAnchor, constant: 10).isActive = true
         }
         
-        setUpContent()
+        setUpContentView()
         setUpBackground()
         setUpLoginLabel()
         setUpLoginTextField()
@@ -168,10 +173,16 @@ class FirstViewController: UIViewController, UITextFieldDelegate {
     
     // Actions
     
+    // UIButton Delegate Methods
     @objc func logInButtonPressed() {
         print("log in button pressed")
         
         print(enteredLoginText)
+        print(enteredPasswordText)
+        
+        if enteredLoginText == login && enteredPasswordText == password {
+            self.navigationController?.pushViewController(secondViewController, animated: true)
+        }
         
         
     }
@@ -191,16 +202,16 @@ class FirstViewController: UIViewController, UITextFieldDelegate {
         
         switch activeTextField {
             case loginTextField:
+                textField.resignFirstResponder()
                 enteredLoginText = textField.text ?? ""
             case passwordTextField:
-            enteredPasswordText = textField.text ?? ""
+                textField.resignFirstResponder()
+                enteredPasswordText = textField.text ?? ""
             default:
                 print("sos")
         }
         
-        textField.resignFirstResponder()
-        enteredLoginText = textField.text ?? ""
-        print(enteredLoginText)
+        
         return true
     }
 
