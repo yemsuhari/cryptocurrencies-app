@@ -26,7 +26,8 @@ class SecondViewController: UIViewController {
         }
         
         setUpContentView()
-        contentView.backgroundColor = UIColor.blue
+        
+        contentView.backgroundColor = UIColor.white
 
         
         

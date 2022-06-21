@@ -15,7 +15,7 @@ class FirstViewController: UIViewController, UITextFieldDelegate {
     
     
     let login = "CryptoInvestor2012"
-    let password = "123456789password"
+    let password = "123456789"
     
     // UITextField that always point to the latest edited text field.
     var activeTextField: UITextField!
@@ -179,7 +179,9 @@ class FirstViewController: UIViewController, UITextFieldDelegate {
         print(enteredLoginText)
         print(enteredPasswordText)
         
-        self.present(secondViewController, animated: true)
+        if enteredLoginText == login && enteredPasswordText == password {
+            self.navigationController?.pushViewController(secondViewController, animated: true)
+        }
         
         
     }
