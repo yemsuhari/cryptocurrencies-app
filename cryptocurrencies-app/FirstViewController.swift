@@ -132,6 +132,7 @@ class FirstViewController: UIViewController, UITextFieldDelegate {
             passwordTextField.clearButtonMode = UITextField.ViewMode.whileEditing
             passwordTextField.contentVerticalAlignment = UIControl.ContentVerticalAlignment.center
             passwordTextField.delegate = self
+            passwordTextField.isSecureTextEntry = true
             
             passwordTextField.centerXAnchor.constraint(equalTo: contentView.centerXAnchor).isActive = true
             passwordTextField.topAnchor.constraint(equalTo: passwordLabel.bottomAnchor, constant: 10).isActive = true
