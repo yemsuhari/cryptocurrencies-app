@@ -8,6 +8,5 @@
 import Foundation
 
 struct MarketData: Decodable {
-    var name: String?
     var price_usd : Double?
 }

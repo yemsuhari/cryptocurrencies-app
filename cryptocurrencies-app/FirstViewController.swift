@@ -46,12 +46,6 @@ class FirstViewController: UIViewController, UITextFieldDelegate {
         super.viewDidLoad()
         
         
-        // TEST TEST TEST TEST TEST TEST TEST
-        var model = CryptocurrencyModel()
-        model.getCryptocurrencies()
-        
-
-        
         func setUpContentView() {
             self.view.addSubview(contentView)
             
