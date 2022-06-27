@@ -9,6 +9,9 @@ import UIKit
 
 class FirstViewController: UIViewController, UITextFieldDelegate {
     
+    var model = CryptocurrencyModel()
+    
+    
     // SecondViewController set up
     let secondViewController = SecondViewController()
     
@@ -41,7 +44,7 @@ class FirstViewController: UIViewController, UITextFieldDelegate {
 
     override func viewDidLoad() {
         super.viewDidLoad()
-
+        
         
         func setUpContentView() {
             self.view.addSubview(contentView)

@@ -7,12 +7,22 @@
 
 import UIKit
 
-class SecondViewController: UIViewController {
+class SecondViewController: UIViewController, CryptocurrencyModelProtocol {
+    
+    
+    var cryptocurrencies = [Cryptocurrency]()
     
     var contentView:UIView = UIView()
+    var background:UIImageView = UIImageView()
+    var uiScrollView:UIScrollView = UIScrollView()
 
     override func viewDidLoad() {
         super.viewDidLoad()
+        // Set up cryptocurrencies list
+        var model = CryptocurrencyModel()
+        model.getCryptocurrencies()
+        
+        
         
         func setUpContentView() {
             self.view.addSubview(contentView)
@@ -25,12 +35,33 @@ class SecondViewController: UIViewController {
             contentView.bottomAnchor.constraint(equalTo: self.view.bottomAnchor).isActive = true
         }
         
-        setUpContentView()
+        func setUpBackground() {
+            contentView.addSubview(background)
+            
+            background.image = UIImage(named: "Background")
+            
+            background.translatesAutoresizingMaskIntoConstraints = false
+            
+            background.leftAnchor.constraint(equalTo: contentView.leftAnchor).isActive = true
+            background.rightAnchor.constraint(equalTo: contentView.rightAnchor).isActive = true
+            background.topAnchor.constraint(equalTo: contentView.topAnchor).isActive = true
+            background.bottomAnchor.constraint(equalTo: contentView.bottomAnchor).isActive = true
+            
+        }
         
-        contentView.backgroundColor = UIColor.white
+        setUpContentView()
+        setUpBackground()
 
         
         
+    }
+    
+    
+    // CryptocurrencyModel delegate methods
+    func cryptocurrencyRetrieved(_ cryptocurrencies: [Cryptocurrency]) {
+        self.cryptocurrencies = cryptocurrencies
+        
+        // Reload data
     }
     
 
