@@ -67,3 +67,5 @@ class SecondViewController: UIViewController, CryptocurrencyModelProtocol {
 
 
 }
+
+// Fix commit message
