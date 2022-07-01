@@ -48,9 +48,12 @@ class SecondViewController: UIViewController, CryptocurrencyModelProtocol {
             uiTableView.topAnchor.constraint(equalTo: contentView.topAnchor).isActive = true
             uiTableView.bottomAnchor.constraint(equalTo: contentView.bottomAnchor).isActive = true
             
-            uiTableView.register(UITableViewCell.self, forCellReuseIdentifier: "MyCell")
+            uiTableView.register(MyCell.self, forCellReuseIdentifier: MyCell.identifier)
             uiTableView.dataSource = self
             uiTableView.delegate = self
+            
+            //uiTableView.sectionHeaderHeight = 40
+            //uiTableView.rowHeight = UITableView.automaticDimension
             
         }
         
@@ -91,9 +94,14 @@ extension SecondViewController: UITableViewDelegate, UITableViewDataSource {
     
     func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
         
-        let cell = tableView.dequeueReusableCell(withIdentifier: "MyCell", for: indexPath as IndexPath)
-        let usdPrice = round((cryptocurrencies[indexPath.row].data?.market_data?.price_usd!)!)
-        cell.textLabel!.text = "\((cryptocurrencies[indexPath.row].data?.name)!)              \(usdPrice)$"
+        let cell = tableView.dequeueReusableCell(withIdentifier: MyCell.identifier, for: indexPath as IndexPath) as! MyCell
+        
+        cell.cryptocurrencyName.text = cryptocurrencies[indexPath.row].data?.name
+        
+        let price = (round((cryptocurrencies[indexPath.row].data?.market_data?.price_usd ?? 0)*10000))/10000
+        
+        cell.cryptocurrencyPrice.text = "\(price)$"
+        
         return cell
     }
     
