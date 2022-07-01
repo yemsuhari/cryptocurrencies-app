@@ -92,6 +92,8 @@ extension SecondViewController: UITableViewDelegate, UITableViewDataSource {
     func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
         
         let cell = tableView.dequeueReusableCell(withIdentifier: "MyCell", for: indexPath as IndexPath)
+        let usdPrice = round((cryptocurrencies[indexPath.row].data?.market_data?.price_usd!)!)
+        cell.textLabel!.text = "\((cryptocurrencies[indexPath.row].data?.name)!)              \(usdPrice)$"
         return cell
     }
     
