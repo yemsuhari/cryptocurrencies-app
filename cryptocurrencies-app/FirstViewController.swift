@@ -9,7 +9,6 @@ import UIKit
 
 class FirstViewController: UIViewController, UITextFieldDelegate {
     
-    var model = CryptocurrencyModel()
     
     
     // SecondViewController set up
@@ -17,7 +16,7 @@ class FirstViewController: UIViewController, UITextFieldDelegate {
     
     
     
-    let login = "CryptoInvestor2012"
+    let login = "1"
     let password = "123456789"
     
     // UITextField that always point to the latest edited text field.
