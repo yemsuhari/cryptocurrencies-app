@@ -10,17 +10,20 @@ import UIKit
 class SecondViewController: UIViewController, CryptocurrencyModelProtocol {
     
     
+    var model = CryptocurrencyModel()
+    
     var cryptocurrencies = [Cryptocurrency]()
     
     var contentView:UIView = UIView()
-    var background:UIImageView = UIImageView()
-    var uiScrollView:UIScrollView = UIScrollView()
+    var uiTableView:UITableView = UITableView()
 
     override func viewDidLoad() {
         super.viewDidLoad()
+        
         // Set up cryptocurrencies list
-        var model = CryptocurrencyModel()
+        model.delegate = self
         model.getCryptocurrencies()
+        
         
         
         
@@ -35,25 +38,37 @@ class SecondViewController: UIViewController, CryptocurrencyModelProtocol {
             contentView.bottomAnchor.constraint(equalTo: self.view.bottomAnchor).isActive = true
         }
         
-        func setUpBackground() {
-            contentView.addSubview(background)
+        func setUpUiTableView() {
+            contentView.addSubview(uiTableView)
             
-            background.image = UIImage(named: "Background")
+            uiTableView.translatesAutoresizingMaskIntoConstraints = false
             
-            background.translatesAutoresizingMaskIntoConstraints = false
+            uiTableView.leftAnchor.constraint(equalTo: contentView.leftAnchor).isActive = true
+            uiTableView.rightAnchor.constraint(equalTo: contentView.rightAnchor).isActive = true
+            uiTableView.topAnchor.constraint(equalTo: contentView.topAnchor).isActive = true
+            uiTableView.bottomAnchor.constraint(equalTo: contentView.bottomAnchor).isActive = true
             
-            background.leftAnchor.constraint(equalTo: contentView.leftAnchor).isActive = true
-            background.rightAnchor.constraint(equalTo: contentView.rightAnchor).isActive = true
-            background.topAnchor.constraint(equalTo: contentView.topAnchor).isActive = true
-            background.bottomAnchor.constraint(equalTo: contentView.bottomAnchor).isActive = true
+            uiTableView.register(MyCell.self, forCellReuseIdentifier: MyCell.identifier)
+            uiTableView.dataSource = self
+            uiTableView.delegate = self
+            
+            //uiTableView.sectionHeaderHeight = 40
+            //uiTableView.rowHeight = UITableView.automaticDimension
             
         }
         
+        
+        
+        
         setUpContentView()
-        setUpBackground()
+        setUpUiTableView()
 
         
         
+    }
+    
+    override func viewDidAppear(_ animated: Bool) {
+        print("Halol")
     }
     
     
@@ -62,10 +77,35 @@ class SecondViewController: UIViewController, CryptocurrencyModelProtocol {
         self.cryptocurrencies = cryptocurrencies
         
         // Reload data
+        uiTableView.reloadData()
     }
     
 
 
 }
 
-// Fix commit message
+
+extension SecondViewController: UITableViewDelegate, UITableViewDataSource {
+    
+    
+    func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
+        //return cryptocurrencies.count
+        return cryptocurrencies.count
+    }
+    
+    func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
+        
+        let cell = tableView.dequeueReusableCell(withIdentifier: MyCell.identifier, for: indexPath as IndexPath) as! MyCell
+        
+        cell.cryptocurrencyName.text = cryptocurrencies[indexPath.row].data?.name
+        
+        let price = (round((cryptocurrencies[indexPath.row].data?.market_data?.price_usd ?? 0)*10000))/10000
+        
+        cell.cryptocurrencyPrice.text = "\(price)$"
+        
+        return cell
+    }
+    
+    
+}
+

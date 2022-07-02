@@ -11,6 +11,7 @@
 		6E59423028646EBB00D5FCEE /* Cryptocurrency.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6E59422F28646EBB00D5FCEE /* Cryptocurrency.swift */; };
 		6E5942322864732900D5FCEE /* CryptocurrencyData.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6E5942312864732900D5FCEE /* CryptocurrencyData.swift */; };
 		6E5942342864749900D5FCEE /* MarketData.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6E5942332864749900D5FCEE /* MarketData.swift */; };
+		6EA62F37286F937300D86710 /* MyCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6EA62F36286F937300D86710 /* MyCell.swift */; };
 		6EF40106285B594A00B47536 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6EF40105285B594A00B47536 /* AppDelegate.swift */; };
 		6EF40108285B594A00B47536 /* SceneDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6EF40107285B594A00B47536 /* SceneDelegate.swift */; };
 		6EF4010F285B594B00B47536 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 6EF4010E285B594B00B47536 /* Assets.xcassets */; };
@@ -24,6 +25,7 @@
 		6E59422F28646EBB00D5FCEE /* Cryptocurrency.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Cryptocurrency.swift; sourceTree = "<group>"; };
 		6E5942312864732900D5FCEE /* CryptocurrencyData.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CryptocurrencyData.swift; sourceTree = "<group>"; };
 		6E5942332864749900D5FCEE /* MarketData.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MarketData.swift; sourceTree = "<group>"; };
+		6EA62F36286F937300D86710 /* MyCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MyCell.swift; sourceTree = "<group>"; };
 		6EF40102285B594A00B47536 /* cryptocurrencies-app.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = "cryptocurrencies-app.app"; sourceTree = BUILT_PRODUCTS_DIR; };
 		6EF40105285B594A00B47536 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		6EF40107285B594A00B47536 /* SceneDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SceneDelegate.swift; sourceTree = "<group>"; };
@@ -72,6 +74,7 @@
 				6E59422F28646EBB00D5FCEE /* Cryptocurrency.swift */,
 				6E5942312864732900D5FCEE /* CryptocurrencyData.swift */,
 				6E5942332864749900D5FCEE /* MarketData.swift */,
+				6EA62F36286F937300D86710 /* MyCell.swift */,
 				6EF4010E285B594B00B47536 /* Assets.xcassets */,
 				6EF40110285B594B00B47536 /* LaunchScreen.storyboard */,
 				6EF40113285B594B00B47536 /* Info.plist */,
@@ -155,6 +158,7 @@
 				6E59423028646EBB00D5FCEE /* Cryptocurrency.swift in Sources */,
 				6E59422E28646E9800D5FCEE /* CryptocurrencyModel.swift in Sources */,
 				6EF4011A285B5ACC00B47536 /* FirstViewController.swift in Sources */,
+				6EA62F37286F937300D86710 /* MyCell.swift in Sources */,
 				6EF40106285B594A00B47536 /* AppDelegate.swift in Sources */,
 				6EF40108285B594A00B47536 /* SceneDelegate.swift in Sources */,
 			);

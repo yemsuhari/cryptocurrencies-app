@@ -60,10 +60,6 @@ class CryptocurrencyModel {
                         // Add cryptocurrency to arrayOfCryptocurrencies
                         arrayOfCryptocurrencies.append(cryptocurrency)
                         
-                        // Pass it back to the view controller in the main thread
-                        DispatchQueue.main.async {
-                            self.delegate?.cryptocurrencyRetrieved(arrayOfCryptocurrencies)
-                        }
                         
                     }
                     catch {
@@ -72,12 +68,18 @@ class CryptocurrencyModel {
                     
                     
                 } // End if
+                
+                // Pass it back to the view controller in the main thread
+                DispatchQueue.main.async {
+                    self.delegate?.cryptocurrencyRetrieved(arrayOfCryptocurrencies)
+                }
 
             } // End Data Task
             
             // Start the data task
             dataTask.resume()
         }
+        
             
     }
                 
