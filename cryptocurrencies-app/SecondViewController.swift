@@ -12,6 +12,7 @@ class SecondViewController: UIViewController, CryptocurrencyModelProtocol {
     
     var model = CryptocurrencyModel()
     
+    
     var cryptocurrencies = [Cryptocurrency]()
     
     var contentView:UIView = UIView()
@@ -106,6 +107,12 @@ extension SecondViewController: UITableViewDelegate, UITableViewDataSource {
         return cell
     }
     
+    func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
+        
+        let detailView = DetailViewController(passedCryptocurrency: cryptocurrencies[indexPath.row].self)
+        
+        self.navigationController?.pushViewController(detailView, animated: true)
+    }
     
 }
 
