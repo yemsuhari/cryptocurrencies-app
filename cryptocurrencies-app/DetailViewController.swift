@@ -100,7 +100,7 @@ class DetailViewController: UIViewController {
         
         percentChangeLabel.font = percentChangeLabel.font.withSize(30)
         
-        if (passedCryptocurrency.data?.market_data?.percent_change_usd_last_1_hour!)! >= 0 {
+        if (passedCryptocurrency.data?.market_data?.percent_change_usd_last_1_hour ?? 0) >= 0 {
             percentChangeLabel.text = (String((round((passedCryptocurrency.data?.market_data?.percent_change_usd_last_1_hour ?? 0)*1000))/1000) + "% last hour")
             percentChangeLabel.textColor = UIColor.green
         }

@@ -13,6 +13,7 @@
 		6E5942342864749900D5FCEE /* MarketData.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6E5942332864749900D5FCEE /* MarketData.swift */; };
 		6EA62F37286F937300D86710 /* MyCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6EA62F36286F937300D86710 /* MyCell.swift */; };
 		6EA62F39286FE23800D86710 /* DetailViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6EA62F38286FE23800D86710 /* DetailViewController.swift */; };
+		6EA62F3C286FFE3E00D86710 /* Simulator Screen Recording.gif in Resources */ = {isa = PBXBuildFile; fileRef = 6EA62F3B286FFE3E00D86710 /* Simulator Screen Recording.gif */; };
 		6EF40106285B594A00B47536 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6EF40105285B594A00B47536 /* AppDelegate.swift */; };
 		6EF40108285B594A00B47536 /* SceneDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6EF40107285B594A00B47536 /* SceneDelegate.swift */; };
 		6EF4010F285B594B00B47536 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 6EF4010E285B594B00B47536 /* Assets.xcassets */; };
@@ -28,6 +29,7 @@
 		6E5942332864749900D5FCEE /* MarketData.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MarketData.swift; sourceTree = "<group>"; };
 		6EA62F36286F937300D86710 /* MyCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MyCell.swift; sourceTree = "<group>"; };
 		6EA62F38286FE23800D86710 /* DetailViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DetailViewController.swift; sourceTree = "<group>"; };
+		6EA62F3B286FFE3E00D86710 /* Simulator Screen Recording.gif */ = {isa = PBXFileReference; lastKnownFileType = image.gif; path = "Simulator Screen Recording.gif"; sourceTree = "<group>"; };
 		6EF40102285B594A00B47536 /* cryptocurrencies-app.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = "cryptocurrencies-app.app"; sourceTree = BUILT_PRODUCTS_DIR; };
 		6EF40105285B594A00B47536 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		6EF40107285B594A00B47536 /* SceneDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SceneDelegate.swift; sourceTree = "<group>"; };
@@ -49,6 +51,14 @@
 /* End PBXFrameworksBuildPhase section */
 
 /* Begin PBXGroup section */
+		6EA62F3A286FFE0D00D86710 /* simulatorRecords */ = {
+			isa = PBXGroup;
+			children = (
+				6EA62F3B286FFE3E00D86710 /* Simulator Screen Recording.gif */,
+			);
+			path = simulatorRecords;
+			sourceTree = "<group>";
+		};
 		6EF400F9285B594A00B47536 = {
 			isa = PBXGroup;
 			children = (
@@ -68,6 +78,7 @@
 		6EF40104285B594A00B47536 /* cryptocurrencies-app */ = {
 			isa = PBXGroup;
 			children = (
+				6EA62F3A286FFE0D00D86710 /* simulatorRecords */,
 				6EF40105285B594A00B47536 /* AppDelegate.swift */,
 				6EF40107285B594A00B47536 /* SceneDelegate.swift */,
 				6EF40119285B5ACC00B47536 /* FirstViewController.swift */,
@@ -143,6 +154,7 @@
 			isa = PBXResourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				6EA62F3C286FFE3E00D86710 /* Simulator Screen Recording.gif in Resources */,
 				6EF40112285B594B00B47536 /* LaunchScreen.storyboard in Resources */,
 				6EF4010F285B594B00B47536 /* Assets.xcassets in Resources */,
 			);
