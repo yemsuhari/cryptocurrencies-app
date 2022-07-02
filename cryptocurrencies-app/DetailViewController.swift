@@ -18,6 +18,8 @@ class DetailViewController: UIViewController {
     
     var cryptocurrencyPrice = UILabel()
     
+    var percentChangeLabel = UILabel()
+    
     
     init(passedCryptocurrency: Cryptocurrency) {
         self.passedCryptocurrency = passedCryptocurrency
@@ -81,6 +83,36 @@ class DetailViewController: UIViewController {
         
         
     }
+    
+    
+    func setUpPercentChangeLabel() {
+        contentView.addSubview(percentChangeLabel)
+        
+        percentChangeLabel.translatesAutoresizingMaskIntoConstraints = false
+        
+        
+        percentChangeLabel.centerXAnchor.constraint(equalTo: contentView.centerXAnchor).isActive = true
+        
+        //cryptocurrencyName.leftAnchor.constraint(equalTo: self.view.leftAnchor).isActive = true
+        //cryptocurrencyName.rightAnchor.constraint(equalTo: self.view.rightAnchor).isActive = true
+        percentChangeLabel.topAnchor.constraint(equalTo: cryptocurrencyPrice.topAnchor, constant: 130).isActive = true
+        //cryptocurrencyName.bottomAnchor.constraint(equalTo: self.view.bottomAnchor).isActive = true
+        
+        percentChangeLabel.font = percentChangeLabel.font.withSize(30)
+        
+        if (passedCryptocurrency.data?.market_data?.percent_change_usd_last_1_hour!)! >= 0 {
+            percentChangeLabel.text = (String((round((passedCryptocurrency.data?.market_data?.percent_change_usd_last_1_hour ?? 0)*1000))/1000) + "% last hour")
+            percentChangeLabel.textColor = UIColor.green
+        }
+        else {
+            percentChangeLabel.text = (String((round((passedCryptocurrency.data?.market_data?.percent_change_usd_last_1_hour ?? 0)*1000))/1000) + "% last hour")
+            percentChangeLabel.textColor = UIColor.red
+        }
+        
+        percentChangeLabel.text = (String((round((passedCryptocurrency.data?.market_data?.percent_change_usd_last_1_hour ?? 0)*1000))/1000) + "% last hour")
+        
+        
+    }
 
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -89,6 +121,8 @@ class DetailViewController: UIViewController {
         setUpContentView()
         setUpCryptocurrencyName()
         setUpCryptocurrencyPrice()
+        setUpPercentChangeLabel()
+        
 
         // Do any additional setup after loading the view.
     }

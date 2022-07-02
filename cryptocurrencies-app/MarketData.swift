@@ -9,4 +9,5 @@ import Foundation
 
 struct MarketData: Decodable {
     var price_usd : Double?
+    var percent_change_usd_last_1_hour: Double?
 }
