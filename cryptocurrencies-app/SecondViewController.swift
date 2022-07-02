@@ -106,6 +106,9 @@ extension SecondViewController: UITableViewDelegate, UITableViewDataSource {
         return cell
     }
     
+    func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
+        self.navigationController?.pushViewController(UIViewController(), animated: true)
+    }
     
 }
 
